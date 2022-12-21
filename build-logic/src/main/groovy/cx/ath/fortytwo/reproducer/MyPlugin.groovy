@@ -44,17 +44,11 @@ class MyPlugin implements Plugin<Project> {
 
         //The path of the generated source class files
         def generatedSrcClassFileDir = project.buildDir.absolutePath+'/classes/java/main'
-        //The target directory where we need the integration test classes to land
-        def generatedTestClassDir = project.buildDir.absolutePath+'/classes/java/test'
         //The suffix of the generated classes that will be used as regex to find the integration test runner files*/
         def testRunnerClassesFileSuffix = "**/*TestRunner.class"
 
         //A task that is defined to copy the runner files into the integration test directory
-        def copyTestClasses = project.tasks.create('copyTestClasses', Copy.class) {
-            from  generatedSrcClassFileDir
-            include testRunnerClassesFileSuffix
-            into    generatedTestClassDir
-        }
+        def copyTestClasses = project.tasks.create('copyTestClasses')
 
         //A task that deletes the runner files from the generated main source file directory
         def deleteTestClassesInMain = project.tasks.create('deleteTestClassesInMain',  Delete.class) {

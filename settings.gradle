@@ -10,4 +10,3 @@
 
 rootProject.name = 'no-progress-netflix'
 includeBuild('build-logic')
-include('list')
