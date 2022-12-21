@@ -28,12 +28,5 @@ testing {
             // Use JUnit Jupiter test framework
             useJUnitJupiter('5.9.1')
         }
-        integTest(JvmTestSuite) {
-            dependencies {
-                implementation project()
-            }
-            // Use JUnit Jupiter test framework
-            useJUnitJupiter('5.9.1')
-        }
     }
 }
